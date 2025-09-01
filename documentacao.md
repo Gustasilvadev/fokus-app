@@ -2,7 +2,7 @@
 
 1. npx create-expo-app@3 fokus --> Criar um app react native com o nome fokus, na versao 3.
 
-2. npm start --> Prepara servidor para sr executadonpm start.
+2. npm start --> Prepara servidor para ser executado npm start.
 
 3. npm run reset-project --> Reseta o projeto para ficar limpo.
 

@@ -9,14 +9,15 @@ export default function Index() {
         <Text style={styles.timer}>25:00</Text>
 
         <Pressable style={styles.button}>
+           <Image source={require('./play_arrow.png')} style={styles.icon}/>
           <Text style={styles.buttonText}>Começar</Text>
         </Pressable>
 
       </View>
       <View style={styles.footer}>
-        <Text style={styles.footerText}></Text>
-        Projeto ficticio e sem fins comerciais. Desenvolvido por Aluno
-
+        <Text style={styles.footerText}>
+          Projeto ficticio e sem fins comerciais.Desenvolvido por Alura
+        </Text>
       </View>
 
     </View>
@@ -29,19 +30,21 @@ const styles = StyleSheet.create({
     flex:1,
     justifyContent: "center",
     alignItems:"center",
-    backgroundColor: '#021123'
+    backgroundColor: '#021123',
+    gap:32
   },
 
   actions:{
     padding:24,
-    backgroundColor:'#144480',
+     backgroundColor: 'rgba(20, 68, 128, 0.3)',
     width:'80%',
     height:'30%',
-    borderColor:'#144480',
     borderRadius:32,
+    borderColor: '#144480',
     borderWidth:2,
     alignItems:"center",
-    justifyContent:"center"
+    justifyContent:"center",
+    gap:32
 
   },
 
@@ -49,17 +52,32 @@ const styles = StyleSheet.create({
     color: '#ffffff',
     fontSize:53,
     fontFamily:"Unbounded",
-    fontWeight:600
+    fontWeight:'600'
 
   },
 
 
-   button:{
+  button:{
+    width: '80%',
+    height:'20%',
+    backgroundColor:'#B872FF',
+    borderRadius:32,
+    justifyContent:"center",
+    alignItems:"center",
+    padding:8,
+    flexDirection: 'row',
 
   },
 
   buttonText:{
+    color:'#021123',
+    padding: 5,
+    fontWeight: 'bold'
 
+  },
+
+  icon: {
+  tintColor: '#000000',      
   },
 
   footer:{
@@ -67,6 +85,10 @@ const styles = StyleSheet.create({
   },
 
   footerText:{
+    fontFamily:"Montserrat",
+    fontWeight:"400",
+    fontSize:13,
+    color:'#98A0A8'
 
   }
 
