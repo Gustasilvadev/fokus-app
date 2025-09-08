@@ -1,27 +1,49 @@
+import { useState } from "react";
 import { Image, Pressable, StyleSheet, Text, View } from "react-native";
 
+const pomodoro = [
+  {
+    id:"focus",
+    initialValue:25,
+    image:require('./foco.png'),
+    display: "Foco",
+
+  },
+  {
+    id:"short",
+    initialValue:5,
+    image:require('./descanso_curto.png'),
+    display: "Pausa curta",
+  
+  },
+  {
+    id:"long",
+    initialValue:15,
+    image:require('./descanso_longo.png'),
+    display: "Pausa longa,"
+  
+  },
+]
+
 export default function Index() {
+
+  const [timerType,setTimerType] = useState(pomodoro[0]); 
+
   return (
     <View style={styles.container}>
-      <Image source={require('./foco.png')} />
+      <Image source={timerType.image} />
 
       <View style={styles.actions}>
 
         <View style={styles.context}>
 
           <Pressable style={styles.contextButtonActive}>
-            <Text style={styles.contextButtonText}>Foco</Text>
-          </Pressable>
-          <Pressable>
-            <Text style={styles.contextButtonText}>Pausa Curta</Text>
-          </Pressable>
-          <Pressable>
-            <Text style={styles.contextButtonText}>Pausa Longa</Text>
+            <Text style={styles.contextButtonText}>{timerType.display}</Text>
           </Pressable>
 
         </View>
 
-        <Text style={styles.timer}>25:00</Text>
+        <Text style={styles.timer}>{timerType.initialValue}</Text>
 
         <Pressable style={styles.button}>
            <Image source={require('./play_arrow.png')} style={styles.icon}/>
@@ -62,10 +84,29 @@ const styles = StyleSheet.create({
     borderRadius:32,
     borderColor: '#144480',
     borderWidth:2,
-    alignItems:"center",
     justifyContent:"center",
     gap:32,
 
+  },
+
+  context: {
+    flexDirection:"row",
+    alignItems:"center",
+    justifyContent:"space-around",
+
+  },
+
+  contextButtonText: {
+    color:'#ffffff',
+    fontSize:12.5,
+    padding:8,
+
+  },
+
+  contextButtonActive:{
+    backgroundColor:'#144480',
+    borderRadius:8,
+    
   },
 
    timer:{
@@ -77,7 +118,7 @@ const styles = StyleSheet.create({
   },
 
   button:{
-    width: '80%',
+    width: '100%',
     height:'20%',
     backgroundColor:'#B872FF',
     borderRadius:32,
@@ -92,6 +133,7 @@ const styles = StyleSheet.create({
     color:'#021123',
     padding: 5,
     fontSize:18,
+    textAlign:"center",
   },
 
   icon: {
@@ -107,27 +149,7 @@ const styles = StyleSheet.create({
     fontSize:12.5,
     color:'#98A0A8',
 
-  },
-
-  context: {
-
-  },
-
-  contextButtonText: {
-
-  },
-
-  contextButtonActive:{
-    
   }
 
+
 })
-
-
-// style={{
-//         flex: 1,
-//         justifyContent: "center",
-//         alignItems: "center",
-//         backgroundColor: 'blue',
-//       }}
-//<Image source={require('./foco.png')} />
