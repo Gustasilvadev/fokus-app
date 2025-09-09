@@ -20,7 +20,7 @@ const pomodoro = [
     id:"long",
     initialValue:15,
     image:require('./descanso_longo.png'),
-    display: "Pausa longa,"
+    display: "Pausa longa"
   
   },
 ]
@@ -36,14 +36,21 @@ export default function Index() {
       <View style={styles.actions}>
 
         <View style={styles.context}>
-
-          <Pressable style={styles.contextButtonActive}>
-            <Text style={styles.contextButtonText}>{timerType.display}</Text>
+         {pomodoro.map(p => (
+          <Pressable key={p.id} 
+          style={ timerType.id === p.id ? styles.contextButtonActive : null} 
+          onPress={() => setTimerType(p)}>
+            <Text style={styles.contextButtonText}>{p.display}</Text>
           </Pressable>
 
+        ))}
+
+          
         </View>
 
-        <Text style={styles.timer}>{timerType.initialValue}</Text>
+        <Text style={styles.timer}>
+          {new Date(timerType.initialValue *1000).toLocaleTimeString("pt-BR",{minute: "2-digit", second: "2-digit"})}
+        </Text>
 
         <Pressable style={styles.button}>
            <Image source={require('./play_arrow.png')} style={styles.icon}/>
