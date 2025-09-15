@@ -1,5 +1,8 @@
 import { useState } from "react";
-import { Image, Pressable, StyleSheet, Text, View } from "react-native";
+import { Image, StyleSheet, Text, View } from "react-native";
+import { ActionButton } from "../components/ActionButton";
+import { FokusButton } from "../components/FokusButton";
+
 
 const pomodoro = [
   {
@@ -37,11 +40,12 @@ export default function Index() {
 
         <View style={styles.context}>
          {pomodoro.map(p => (
-          <Pressable key={p.id} 
-          style={ timerType.id === p.id ? styles.contextButtonActive : null} 
-          onPress={() => setTimerType(p)}>
-            <Text style={styles.contextButtonText}>{p.display}</Text>
-          </Pressable>
+          <ActionButton 
+          key={p.id}
+          active={timerType.id === p.id}
+          onPress={()=>setTimerType(p)}
+          display={p.display}
+          />
 
         ))}
 
@@ -52,10 +56,7 @@ export default function Index() {
           {new Date(timerType.initialValue *1000).toLocaleTimeString("pt-BR",{minute: "2-digit", second: "2-digit"})}
         </Text>
 
-        <Pressable style={styles.button}>
-           <Image source={require('./play_arrow.png')} style={styles.icon}/>
-          <Text style={styles.buttonText}>Começar</Text>
-        </Pressable>
+        <FokusButton/>
 
       </View>
 
@@ -122,29 +123,6 @@ const styles = StyleSheet.create({
     fontWeight:"bold",
     textAlign:"center",
 
-  },
-
-  button:{
-    width: '100%',
-    height:'20%',
-    backgroundColor:'#B872FF',
-    borderRadius:32,
-    justifyContent:"center",
-    alignItems:"center",
-    padding:8,
-    flexDirection: 'row',
-
-  },
-
-  buttonText:{
-    color:'#021123',
-    padding: 5,
-    fontSize:18,
-    textAlign:"center",
-  },
-
-  icon: {
-    tintColor: '#000000',      
   },
 
   footer:{
