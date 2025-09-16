@@ -1,5 +1,6 @@
 import { Pressable, StyleSheet, Text } from 'react-native';
 
+
 export const  ActionButton = ({active,onPress,display}) => {
  return (
 
@@ -25,6 +26,6 @@ const styles = StyleSheet.create({
     backgroundColor:'#144480',
     borderRadius:8,
     
-  }
+  },
 
 })
