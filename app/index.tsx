@@ -49,10 +49,14 @@ export default function Index() {
           />
 
         ))}
+
         </View>
 
-       <Timer/>
-       
+        
+        <Timer 
+        totalSeconds={timerType.initialValue}
+        />
+
 
         <FokusButton/>
 
@@ -101,28 +105,6 @@ const styles = StyleSheet.create({
     justifyContent:"space-around",
 
   },
-
-  contextButtonText: {
-    color:'#ffffff',
-    fontSize:12.5,
-    padding:8,
-
-  },
-
-  contextButtonActive:{
-    backgroundColor:'#144480',
-    borderRadius:8,
-    
-  },
-
-   timer:{
-    color: '#FFFFFF',
-    fontSize:54,
-    fontWeight:"bold",
-    textAlign:"center",
-
-  },
-
   footer:{
     width:'80%',
   },

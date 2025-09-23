@@ -1,12 +1,17 @@
 import { StyleSheet, Text } from "react-native";
 
-export const Timer=(timerType) =>{
+
+export const Timer=({totalSeconds}) =>{
+    
+    const date = new Date(totalSeconds * 1000)
+    const options = {minute:"2-digit", second:"2-digit"}
+
     return(
         <Text style={styles.timer}>
-            {new Date(timerType.initialValue*100).toLocaleTimeString("pt-BR",{minute:"2-digit"})}
+            {date.toLocaleTimeString("pt-BR",options)}
         </Text>
     );
-};
+}
 
 const styles = StyleSheet.create({
 
